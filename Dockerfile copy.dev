@@ -1,0 +1,23 @@
+FROM ruby:2.7.0-buster
+
+RUN apt-get update -qq 
+
+# && apt-get install -y nodejs npm postgresql-client
+
+# RUN npm install --global yarn
+
+WORKDIR /blog/
+# COPY Gemfile /blog/Gemfile
+# COPY Gemfile.lock /blog/Gemfile.lock
+
+# RUN bundle install
+# RUN bundle check || bundle install --jobs $(nproc)
+
+COPY . /blog/
+
+# ENTRYPOINT ["./docker/entrypoint.sh"]
+
+# RUN chmod +x ./docker/entrypoint.sh
+
+# Configure the main process to run when running the image
+# CMD ["rails", "server", "-b", "0.0.0.0"]
